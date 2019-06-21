@@ -1,5 +1,8 @@
 # Absenteeism of Employees and the Impact on Revenue
 
+According to the U.S. Centers for Disease Control and Prevention (CDC), lost productivity due to absenteeism in the U.S. cost employers $225.8 billion annually, or $1,685 per employee. That's a big dent — and all due to a combination of direct and indirect costs.Jan 22, 2018
+https://advancesystems.ie/the-prevalence-of-employee-absenteeism-infographic/
+
 We will use 
 
 ## Getting Started
