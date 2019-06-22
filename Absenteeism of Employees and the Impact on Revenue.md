@@ -1,27 +1,35 @@
-# Absenteeism of Employees:  Using Machine Learning to predict the absenteeism of employees in hours 
+# An Example of Machine Learning Notebook Using Data on Absenteeism at Work
 
-According to the U.S. Centers for Disease Control and Prevention (CDC), lost productivity due to absenteeism in the U.S. cost employers $225.8 billion annually, or $1,685 per employee. That's a big dent — and all due to a combination of direct and indirect costs.  
-Jan 22, 2018
+# Table of contents
+1. Introduction
+2. License
+3. Required Libraries
+4. Data Used
+5. Hypothesis Given Data on Absenteeism at Work
+6. Use Jupyter Notebook to Test Hypothesis 
+7. Further Reading
+8. Acknowledgements
 
-https://advancesystems.ie/the-prevalence-of-employee-absenteeism-infographic/
+# 1. Introduction
+As Data is becoming available we are able to study a diverse array of fields: mathematics, biology, statistics, physics, computer science, design, and many more.  The field of Data Science represents our collective desire to understand and harness the abundance of data around us to build a better world.
 
-We will test a dataset to see if we are able to predict absenteeism of employees. 
+Data Science is the study of 
 
-# Information on Dataset 
+As we continue our study of Data Science has come to the forefront in the past decade. Cobbled together by people from a diverse array of fields — statistics, physics, computer science, design, and many more — the field of Data Science represents our collective desire to understand and harness the abundance of data around us to build a better world.
 
+In this notebook, I'm going to go over a basic Python data analysis pipeline from start to finish to show you what a typical data science workflow looks like.
+
+In addition to providing code examples, I also hope to imbue in you a sense of good practices so you can be a more effective — and more collaborative — data scientist.
+
+I will be following along with the data analysis checklist from The Elements of Data Analytic Style, which I strongly recommend reading as a free and quick guidebook to performing outstanding data analysis.
+# 2. License
+
+# 3. Required Libraries
+
+# 4. Data Used
 Dataset was taken from UCI Machine Learning Repository.  A collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms.
 
 The database was created with records of absenteeism at work from July 2007 to July 2010 at a courier company in Brazil.
-
-Source:
-Creators original owner and donors: Andrea Martiniano (1), Ricardo Pinto Ferreira (2), and Renato Jose Sassi (3).
-E-mail address: 
-andrea.martiniano'@'gmail.com (1) - PhD student;
-log.kasparov'@'gmail.com (2) - PhD student;
-sassi'@'uni9.pro.br (3) - Prof. Doctor.
-Universidade Nove de Julho - Postgraduate Program in Informatics and Knowledge Management.
-Address: Rua Vergueiro, 235/249 Liberdade, Sao Paulo, SP, Brazil. Zip code: 01504-001.
-Website: http://www.uninove.br/curso/informatica-e-gestao-do-conhecimento/
 
 The dataset includes 21 Attributes and 740 Records.  
 
@@ -79,171 +87,47 @@ Absences attested by the International Code of Diseases (ICD) stratified into 21
 20. Body mass index
 21. Absenteeism time in hours (target)
 
+# 5.  Hypothesis Given Data on Absenteeism at Work
+According to the U.S. Centers for Disease Control and Prevention (CDC), lost productivity due to absenteeism in the U.S. cost employers $225.8 billion annually, or $1,685 per employee. That's a big dent — and all due to a combination of direct and indirect costs.  
+Jan 22, 2018
 
-## Code
+https://advancesystems.ie/the-prevalence-of-employee-absenteeism-infographic/
 
-The following notebooks and scripts, stored in this repository, have been
-developed for the dataset.
+We will test a dataset to see if we are able to predict absenteeism of employees.
 
-1. [usage]: shows how to load the datasets and develop, train and test your own
-   models with it.
-4. [features]: features extraction from the audio (used to create
-   `features.csv`).
-2. [analysis]: exploration of the metadata, data and features.
-4. [features]: features extraction from the audio (used to create
-   `features.csv`).
-5. [webapi]: query the web API of the [FMA]. Can be used to update the dataset.
-6. [creation]: creation of the dataset (used to create `tracks.csv` and
-   `genres.csv`).
+# 6.  Use Jupyter Notebook to Test Hypothesis
 
-[usage]:     ??????
+	Step 1: Answering the question
+	Step 2: Checking the data
+	Step 3: Tidying the data
+	Step 4: Testing our data
+	Step 5: Exploratory analysis
+	Step 6: Classification
+	Step 7: Cross-validation
+	Step 8: Parameter tuning
+	Step 9: Reproducibility
+	Step 10: Conclusions
+
+# Further Reading
+
+# Acknowledgements
+
+Data Source:
+Creators original owner and donors: Andrea Martiniano (1), Ricardo Pinto Ferreira (2), and Renato Jose Sassi (3).
+E-mail address: 
+andrea.martiniano'@'gmail.com (1) - PhD student;
+log.kasparov'@'gmail.com (2) - PhD student;
+sassi'@'uni9.pro.br (3) - Prof. Doctor.
+Universidade Nove de Julho - Postgraduate Program in Informatics and Knowledge Management.
+Address: Rua Vergueiro, 235/249 Liberdade, Sao Paulo, SP, Brazil. Zip code: 01504-001.
+Website: http://www.uninove.br/curso/informatica-e-gestao-do-conhecimento/
 
 
-## Usage
 
-1. Download data, verify its integrity, and uncompress the archives.
-	```sh
-	curl -O https://os.unil.cloud.switch.ch/fma/fma_metadata.zip
 
-	echo "f0df49ffe5f2a6008d7dc83c6915b31835dfe733  fma_metadata.zip" | sha1sum -c -
-	
-	unzip fma_metadata.zip
-	
-	```
 
-	If you get any error while decompressing the archives (especially with the
-	Windows and macOS system unzippers), please try [7zip]. That is probably an
-	[unsupported compression issue](https://github.com/mdeff/fma/issues/5).
 
-1. Optionally, use [pyenv] to install Python 3.6 and create a [virtual
-   environment][pyenv-virt].
-	```sh
-	pyenv install 3.6.0
-	pyenv virtualenv 3.6.0 fma
-	pyenv activate fma
-	```
 
-1. Clone the repository.
-	```sh
-	git clone https://github.com/mdeff/fma.git
-	cd fma
-	```
 
-1. Checkout the revision matching the data you downloaded (e.g., `beta`, `rc1`,
-   `v1`). See the [history](#history) of the dataset.
-	```sh
-	git checkout rc1
-	```
 
-1. Install the Python dependencies from `requirements.txt`. Depending on your
-   usage, you may need to install [ffmpeg] or [graphviz]. Install [CUDA] if you
-   want to train neural networks on GPUs (see
-   [Tensorflow's instructions](https://www.tensorflow.org/install/)).
-	```sh
-	make install
-	```
-
-1. Fill in the configuration.
-	```sh
-	cat .env
-	AUDIO_DIR=/path/to/audio
-	FMA_KEY=IFIUSETHEAPI
-	```
-
-1. Open Jupyter or run a notebook.
-	```sh
-	jupyter-notebook
-	make baselines.ipynb
-	```
-
-[7zip]:       http://www.7-zip.org
-[pyenv]:      https://github.com/pyenv/pyenv
-[pyenv-virt]: https://github.com/pyenv/pyenv-virtualenv
-[ffmpeg]:     https://ffmpeg.org/download.html
-[graphviz]:   http://www.graphviz.org/
-[CUDA]:       https://en.wikipedia.org/wiki/CUDA
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
