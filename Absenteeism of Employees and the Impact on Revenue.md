@@ -1,6 +1,7 @@
-# Absenteeism of Employees and the Impact on Revenue
+# Absenteeism of Employees:  Using Machine Learning to predict the Absenteeism of Employees in Hours for a Given Employer
 
-According to the U.S. Centers for Disease Control and Prevention (CDC), lost productivity due to absenteeism in the U.S. cost employers $225.8 billion annually, or $1,685 per employee. That's a big dent — and all due to a combination of direct and indirect costs.Jan 22, 2018
+According to the U.S. Centers for Disease Control and Prevention (CDC), lost productivity due to absenteeism in the U.S. cost employers $225.8 billion annually, or $1,685 per employee. That's a big dent — and all due to a combination of direct and indirect costs.  
+Jan 22, 2018
 https://advancesystems.ie/the-prevalence-of-employee-absenteeism-infographic/
 
 We will use 
