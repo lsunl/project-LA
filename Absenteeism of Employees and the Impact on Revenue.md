@@ -79,6 +79,82 @@ Absences attested by the International Code of Diseases (ICD) stratified into 21
 20. Body mass index
 21. Absenteeism time in hours (target)
 
+
+## Code
+
+The following notebooks and scripts, stored in this repository, have been
+developed for the dataset.
+
+1. [usage]: shows how to load the datasets and develop, train and test your own
+   models with it.
+
+[usage]:     ??????
+
+
+## Usage
+
+1. Download data, verify its integrity, and uncompress the archives.
+	```sh
+	curl -O https://os.unil.cloud.switch.ch/fma/fma_metadata.zip
+
+	echo "f0df49ffe5f2a6008d7dc83c6915b31835dfe733  fma_metadata.zip" | sha1sum -c -
+	
+	unzip fma_metadata.zip
+	
+	```
+
+	If you get any error while decompressing the archives (especially with the
+	Windows and macOS system unzippers), please try [7zip]. That is probably an
+	[unsupported compression issue](https://github.com/mdeff/fma/issues/5).
+
+1. Optionally, use [pyenv] to install Python 3.6 and create a [virtual
+   environment][pyenv-virt].
+	```sh
+	pyenv install 3.6.0
+	pyenv virtualenv 3.6.0 fma
+	pyenv activate fma
+	```
+
+1. Clone the repository.
+	```sh
+	git clone https://github.com/mdeff/fma.git
+	cd fma
+	```
+
+1. Checkout the revision matching the data you downloaded (e.g., `beta`, `rc1`,
+   `v1`). See the [history](#history) of the dataset.
+	```sh
+	git checkout rc1
+	```
+
+1. Install the Python dependencies from `requirements.txt`. Depending on your
+   usage, you may need to install [ffmpeg] or [graphviz]. Install [CUDA] if you
+   want to train neural networks on GPUs (see
+   [Tensorflow's instructions](https://www.tensorflow.org/install/)).
+	```sh
+	make install
+	```
+
+1. Fill in the configuration.
+	```sh
+	cat .env
+	AUDIO_DIR=/path/to/audio
+	FMA_KEY=IFIUSETHEAPI
+	```
+
+1. Open Jupyter or run a notebook.
+	```sh
+	jupyter-notebook
+	make baselines.ipynb
+	```
+
+[7zip]:       http://www.7-zip.org
+[pyenv]:      https://github.com/pyenv/pyenv
+[pyenv-virt]: https://github.com/pyenv/pyenv-virtualenv
+[ffmpeg]:     https://ffmpeg.org/download.html
+[graphviz]:   http://www.graphviz.org/
+[CUDA]:       https://en.wikipedia.org/wiki/CUDA
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
