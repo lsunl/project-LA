@@ -87,6 +87,14 @@ developed for the dataset.
 
 1. [usage]: shows how to load the datasets and develop, train and test your own
    models with it.
+4. [features]: features extraction from the audio (used to create
+   `features.csv`).
+2. [analysis]: exploration of the metadata, data and features.
+4. [features]: features extraction from the audio (used to create
+   `features.csv`).
+5. [webapi]: query the web API of the [FMA]. Can be used to update the dataset.
+6. [creation]: creation of the dataset (used to create `tracks.csv` and
+   `genres.csv`).
 
 [usage]:     ??????
 
