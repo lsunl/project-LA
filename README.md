@@ -13,21 +13,34 @@
 # 1. Introduction
 As Data is becoming available we are able to study a diverse array of fields: mathematics, biology, statistics, physics, computer science, design, and many more.  The field of Data Science represents our collective desire to understand and harness the abundance of data around us to build a better world.
 
-Data Science is the study of 
+This notebook will go over a basic Python data analysis pipeline from start to finish to show you what a typical data science workflow looks like.
 
-As we continue our study of Data Science has come to the forefront in the past decade. Cobbled together by people from a diverse array of fields — statistics, physics, computer science, design, and many more — the field of Data Science represents our collective desire to understand and harness the abundance of data around us to build a better world.
+In addition to providing a guide, this this exercise will try to follow along with the data analysis checklist from The Elements of Data Analytic Style, a free and quick guidebook to performing outstanding data analysis. https://leanpub.com/datastyle.
 
-In this notebook, I'm going to go over a basic Python data analysis pipeline from start to finish to show you what a typical data science workflow looks like.
+This notebook is intended to be a public resource. As such, if you see any glaring inaccuracies or if a critical topic is missing, please feel free to point it out or (preferably) submit a pull request to improve the notebook
 
-In addition to providing code examples, I also hope to imbue in you a sense of good practices so you can be a more effective — and more collaborative — data scientist.
+We hope you find this example helpful. 
 
-I will be following along with the data analysis checklist from The Elements of Data Analytic Style, which I strongly recommend reading as a free and quick guidebook to performing outstanding data analysis.
 # 2. License
+We have licensed this material so that it can be shared. 
 
 # 3. Required Libraries
 
+You will need Python and Jupyther Notebook installed on your computer to run this example This notebook uses several Python packages that come standard with the Anaconda Python distribution. The primary libraries that we'll be using are:
+
+NumPy: Provides a fast numerical array structure and helper functions.
+pandas: Provides a DataFrame structure to store data in memory and work with it easily and efficiently.
+scikit-learn: The essential Machine Learning package in Python.
+matplotlib: Basic plotting library in Python; most other Python plotting libraries are built on top of it.
+Seaborn: Advanced statistical plotting library.
+watermark: A Jupyter Notebook extension for printing timestamps, version numbers, and hardware information.
+
+To make sure you have all of the packages you need, install them with conda. 
+
 # 4. Data Used
 Dataset was taken from UCI Machine Learning Repository.  A collection of databases, domain theories, and data generators that are used by the machine learning community for the empirical analysis of machine learning algorithms.
+
+https://archive.ics.uci.edu/ml/datasets.php
 
 The database was created with records of absenteeism at work from July 2007 to July 2010 at a courier company in Brazil.
 
@@ -93,7 +106,7 @@ Jan 22, 2018
 
 https://advancesystems.ie/the-prevalence-of-employee-absenteeism-infographic/
 
-We will test a dataset to see if we are able to predict absenteeism of employees.
+This example has been performed in order to explore Machine Learning models included in the sklearn library in Python to predict accuracy of models using employees’ absenteeism at a courier company during the time between July 2007 to July 2010.  Further, models will be tested using raw data collected and data that has been modified using outlier analysis, normalizing and emputing techniques to see difference of model accuracy between both data sets.  
 
 # 6.  Use Jupyter Notebook to Test Hypothesis
 
@@ -109,6 +122,8 @@ We will test a dataset to see if we are able to predict absenteeism of employees
 	Step 10: Conclusions
 
 # Further Reading
+
+# Results
 
 # Acknowledgements
 
