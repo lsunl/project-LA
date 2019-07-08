@@ -28,12 +28,12 @@ We have licensed this material so that it can be shared.
 
 You will need Python and Jupyther Notebook installed on your computer to run this example This notebook uses several Python packages that come standard with the Anaconda Python distribution. The primary libraries that we'll be using are:
 
-NumPy: Provides a fast numerical array structure and helper functions.
-pandas: Provides a DataFrame structure to store data in memory and work with it easily and efficiently.
-scikit-learn: The essential Machine Learning package in Python.
-matplotlib: Basic plotting library in Python; most other Python plotting libraries are built on top of it.
-Seaborn: Advanced statistical plotting library.
-watermark: A Jupyter Notebook extension for printing timestamps, version numbers, and hardware information.
+* NumPy: Provides a fast numerical array structure and helper functions.
+* pandas: Provides a DataFrame structure to store data in memory and work with it easily and efficiently.
+* scikit-learn: The essential Machine Learning package in Python.
+* matplotlib: Basic plotting library in Python; most other Python plotting libraries are built on top of it.
+* Seaborn: Advanced statistical plotting library.
+* watermark: A Jupyter Notebook extension for printing timestamps, version numbers, and hardware information.
 
 To make sure you have all of the packages you need, install them with conda. 
 
