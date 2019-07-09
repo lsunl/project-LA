@@ -15,6 +15,17 @@ pre {
     background: hsl(30,80%,90%);
 }
 
+/* .header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+  position: fixed;
+} */
+
+/* footer {
+  background: hsl(30,80%,90%);
+} */
+
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
 

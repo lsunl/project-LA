@@ -36,9 +36,22 @@
           <a href="#AboutOurData" class="list-group-item list-group-item-action bg-white">About Data</a>
           <a href="profiling.html" class="list-group-item list-group-item-action bg-white">Quick Profile Report</a>
           <a href="#process" class="list-group-item list-group-item-action bg-white">ML Process</a>
-          <a href="#predictions" class="list-group-item list-group-item-action bg-white">Features</a>
+          <a href="#models" class="list-group-item list-group-item-action bg-white">Models</a>
           <a href="#Conclusion" class="list-group-item list-group-item-action bg-white">Conclusion</a>
-          <a href="" class="list-group-item list-group-item-action bg-white"> </a>
+          <!-- <a href="" class="list-group-item list-group-item-action bg-white"> </a> -->
+          <br><br><br><br><br><br><br><br><br><br><br>
+
+          <span class=list-group-item list-group-item-action bg-white>
+          <p>Machine Learning Analysis by Adriana Rubalcaba</p>
+          <p>Contact information: <a href="mailto:arubalcaba001@gmail.com">
+          arubalcaba001@gmail.com</a>.</p>
+          </span>
+
+           <span class=list-group-item list-group-item-action bg-white>
+          <p>Front End by Laura Sun</p>
+          <p>Contact information: <a href="mailto:sun.laura@outlook.com">
+          sun.laura@outlook.com</a>.</p> </span>
+
 
         </div>
       </div>
@@ -50,7 +63,7 @@
         <div class="row ml-auto mr-auto ok">
           <div class="colflex-column ml-auto mr-auto">
 
-            <h1 class="mt-3">Absenteeism at Work</h1>
+            <h1 class="mt-3 header">Absenteeism at Work</h1>
             <hr>
 
             <div id="Introduction" class="section scrollspy">
@@ -181,13 +194,27 @@
           <h4> Examining Features </h4>
           <h6> Using Random Forest to target most important features </h6>
           <p>
-          <pre>from sklearn.ensemble import RandomForestRegressor
+          <pre>
+              from sklearn.ensemble import RandomForestRegressor
               model3= RandomForestRegressor(n_estimators=100)</pre></p>
           <img class="img-fluid" src="../absenteeism/img/top4feats.png">
           <img class="img-fluid" src="../absenteeism/img/allfeats.png">
           <br><br>
+          <h6> Using Decision Tree to target most important features </h6>
+          <p>
+          <pre>
+            from sklearn.tree import DecisionTreeRegressor
+            model2= DecisionTreeRegressor(criterion="mse", max_depth=5,
+                                random_state=0).fit(X, y)
+
+            </pre></p>
+          <img class="img-fluid" src="../absenteeism/img/dtfeat.png">
+
+          <br><br>
 
 
+
+          <div id="models" class="section scrollspy">
           <h4> Linear Regression </h4>
           <p> <pre> <code class = "language-python">
             from sklearn.linear_model import LinearRegression
@@ -268,7 +295,7 @@
             <h2> Conclusion </h2><br>
             <div class= "row">
             <div class = "col-sm">
-              <h4> Summary Statistics </h4>
+            <h4> Summary Statistics </h4>
             <h6>Lets get to know the employees</h6><br>
             1. 85% have high school level education. The remaining 15% have graduate, postgraduate and/or doctorate education. <br>
             2. 68% of employees have 1, 2, 3 or 4 kids.<br>
@@ -318,6 +345,7 @@
             <br>
             <br>
             <br>
+            <br><br>
 
 
           </div>
@@ -326,8 +354,19 @@
 
           <!-- end of third column -->
         </div>
+<!--
+        <footer>
+          <div class ="row">
+        <div class = "col-sm">
+        <p>Machine Learning Analysis by Adriana Rubalcaba</p>
+        <p>Contact information: <a href="mailto:arubalcaba001@gmail.com">
+        arubalcaba001@gmail.com</a>.</p></div>
 
-
+        <div class = "col-sm">
+        <p>Front End by Laura Sun</p>
+        <p>Contact information: <a href="mailto:sun.laura@outlook.com">
+        sun.laura@outlook.com</a>.</p></div></div>
+      </footer> -->
   <!-- end of container -->
     </div>
 
