@@ -11,15 +11,12 @@
 8. Acknowledgements
 
 # 1. Introduction
-As Data is becoming available we are able to study a diverse array of fields: mathematics, biology, statistics, physics, computer science, design, and many more.  The field of Data Science represents our collective desire to understand and harness the abundance of data around us to build a better world.
+See https://lsunl.github.io/absenteeism/ for web demonstration
 
-This notebook will go over a basic Python data analysis pipeline from start to finish to show you what a typical data science workflow looks like.
+Lost productivity due to absenteeism in the U.S. cost employers $225.8 billion annually, or $1,685 per employee (U.S. Bureau of Labor Statistics, 2019). That's a big dent — and all due to a combination of direct and indirect costs. This study explores a courier company’s absentee records with the aim of identifying unique trends and providing insight on absenteeism through machine learning. 
 
-In addition to providing a guide, this this exercise will try to follow along with the data analysis checklist from The Elements of Data Analytic Style, a free and quick guidebook to performing outstanding data analysis. https://leanpub.com/datastyle.
+Because the variable we’d like to predict (hours in absenteeism) is continuous by nature, we assume this study is a regression problem. However, we explore different machine learning models including Decision Tree, Random Forest, and Gradient Boosting in addition to Linear Regression for experimental purposes. We use the KNN imputation method to standardize our data. To test feature selection and importance, we use correlation analysis, ANOVA, principal component analysis and Random Forest. 
 
-This notebook is intended to be a public resource. As such, if you see any glaring inaccuracies or if a critical topic is missing, please feel free to point it out or (preferably) submit a pull request to improve the notebook
-
-We hope you find this example helpful. 
 
 # 2. License
 We have licensed this material so that it can be shared. 
