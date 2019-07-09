@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Add link to Bootstrap CDN below: -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/d3Style.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+/>
+  <title>ML</title>
+
+
+</head>
+
+<body>
+
+
+<!-- start of container-fluid -->
+  <div class="container-fluid">
+    <div class ="row ml-auto mr-auto">
+
+    <div class="d-flex" id="wrapper">
+
+      <!-- Sidebar -->
+      <div class="bg-white" id="sidebar-wrapper">
+        <!-- <div class="sidebar-heading">Absenteeism at Work<</div> -->
+        <div class="list-group list-group-flush active">
+          <br><br><br><br><br><br><br><br>
+
+          <a href="#Introduction" class="list-group-item list-group-item-action bg-white">Introduction<span class="sr-only">(current)</span></a>
+          <a href="#AboutOurData" class="list-group-item list-group-item-action bg-white">About Data</a>
+          <a href="profiling.html" class="list-group-item list-group-item-action bg-white">Quick Profile Report</a>
+          <a href="#process" class="list-group-item list-group-item-action bg-white">ML Process</a>
+          <a href="#predictions" class="list-group-item list-group-item-action bg-white">Features</a>
+          <a href="#Conclusion" class="list-group-item list-group-item-action bg-white">Conclusion</a>
+          <a href="" class="list-group-item list-group-item-action bg-white"> </a>
+
+        </div>
+      </div>
+      <!-- /#sidebar-wrapper -->
+
+      <!-- #first container -->
+      <div class="container my-container content">
+        <!-- first row -->
+        <div class="row ml-auto mr-auto ok">
+          <div class="colflex-column ml-auto mr-auto">
+
+            <h1 class="mt-3">Absenteeism at Work</h1>
+            <hr>
+
+            <div id="Introduction" class="section scrollspy">
+              <h2> Abstract </h2>
+              <p>
+              This study uses a machine learning approach to conduct exploratory analysis on employee absenteeism. We explore different ML models through Scikit-learn, a Python machine learning library, and data modification techniques through Pandas, a Python data manipulation library, to predict and evaluate hours of absenteeism. Dataset is derived from a Brazilian courier and dated between July 2007 to July 2010.
+            </p>
+            <br>
+
+
+              <h2> Introduction </h2>
+              <p>
+              Lost productivity due to absenteeism in the U.S. cost employers $225.8 billion annually, or $1,685 per employee (U.S. Bureau of Labor Statistics, 2019). That's a big dent — and all due to a combination of direct and indirect costs. This study explores a courier company’s absentee records with the aim of identifying unique trends and providing insight on absenteeism through machine learning.
+              Because the variable we’d like to predict (hours in absenteeism) is continuous by nature, we assume this study is a regression problem. However, we explore different machine learning models including Decision Tree, Random Forest, and Gradient Boosting in addition to Linear Regression for experimental purposes. We use the KNN imputation method to standardize our data. To test feature selection and importance, we use correlation analysis, ANOVA, principal component analysis and Random Forest.
+            </p><br>
+
+            <div id="AboutOurData" class="section scrollspy">
+              <h2> About Our Data </h2>
+              <p>This dataset and its related information are available from the <a href = "https://archive.ics.uci.edu/ml/datasets/Absenteeism+at+work" >UCI Machine Learning Repository </a>. With 740 records and 20 distinctive features collected for 36 different employees during a four-year period (July 2007 to July 2010). These features range from reason for absence, age, Body Mass Index (BMI) to service time, number of children and number of pets among others.</p>
+
+                <p>Variables Information: <br>
+                1. Individual identification (ID)<br>
+                2. Reason for absence (ICD) -<br>
+                Absences attested by the International Code of Diseases (ICD) stratified into 21 categories (I to XXI) as follows:<br>
+                I. Certain infectious and parasitic diseases<br>
+                II. Neoplasms<br>
+                III. Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism<br>
+                IV. Endocrine, nutritional and metabolic diseases<br>
+                V. Mental and behavioral disorders<br>
+                VI. Diseases of the nervous system<br>
+                VII. Diseases of the eye and adnexa<br>
+                VIII. Diseases of the ear and mastoid process<br>
+                IX. Diseases of the circulatory system<br>
+                X. Diseases of the respiratory system<br>
+                XI. Diseases of the digestive system<br>
+                XII. Diseases of the skin and subcutaneous tissue<br>
+                XIII. Diseases of the musculoskeletal system and connective tissue<br>
+                XIV. Diseases of the genitourinary system<br>
+                XV. Pregnancy, childbirth and the puerperium<br>
+                XVI. Certain conditions originating in the perinatal period<br>
+                XVII. Congenital malformations, deformations and chromosomal abnormalities<br>
+                XVIII. Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified<br>
+                XIX. Injury, poisoning and certain other consequences of external causes<br>
+                XX. External causes of morbidity and mortality<br>
+                XXI. Factors influencing health status and contact with health services<br>
+                And 7 categories without (CID) patient follow-up (22), medical consultation (23), blood donation (24), laboratory examination (25), unjustified absence (26), physiotherapy (27), dental consultation (28).<br>
+                3. Month of absence<br>
+                4. Day of the week (Monday (2), Tuesday (3), Wednesday (4), Thursday (5), Friday (6))<br>
+                5. Seasons (summer (1), autumn (2), winter (3), spring (4))<br>
+                6. Transportation expense<br>
+                7. Distance from Residence to Work (kilometers)<br>
+                8. Service time<br>
+                9. Age<br>
+                10. Workload Average/day<br>
+                11. Hit target<br>
+                12. Disciplinary failure (yes=1; no=0)<br>
+                13. Education (high school (1), graduate (2), postgraduate (3), master and doctor (4))<br>
+                14. Son (number of children)<br>
+                15. Social drinker (yes=1; no=0)<br>
+                16. Social smoker (yes=1; no=0)<br>
+                17. Pet (number of pet)<br>
+                18. Weight<br>
+                19. Height<br>
+                20. Body mass index<br>
+                21. Absenteeism time in hours (target)<br><p>
+                    <br>
+            </div>
+
+            <div id="" class="section scrollspy">
+
+              <h4> Our Y Variable - What are we predicting? </h4>
+              <center>
+              <img class="img-fluid" src="../absenteeism/img/hours.png"></center>
+              <br><br>
+
+
+            </div>
+
+            <div id="process" class="section scrollspy">
+              <h2> The Process </h2><br>
+
+              <h4> Preprocessing </h4>
+              <p>
+              A substantial portion of the project revolved around understanding the data, standardizing the features and taking care of extreme outliers to better feed our machine learning models. Any predictive modeling requires a thorough examination of the data before modeling. We begin by assessing the probability distributions of all variables. Most analysis like regression, requires the data to be normally distributed. We can visualize that in a glance by looking at the probability distributions or probability density functions of the variables.</p>
+
+              <h4> Missing Value Analysis</h4>
+              <p>
+              	In statistics, missing data, or missing values, occur when there aren’t any data for the variable in an observation. Missing values are a common occurrence and can have a significant effect on the conclusions that can be drawn from the data. If a column has more than 30% of data as missing value, we can either ignore the entire column or we can ignore those observations. In the given data the maximum percentage of missing value is 4.189% for body mass index column. So, we will compute missing values for all the columns.</p>
+
+
+
+              <h4> Libraries used </h4>
+                <p>
+                <pre>
+                  <code class="language-python">
+                #Dependencies
+                import pandas as pd
+                import numpy as np
+                %matplotlib inline
+                import matplotlib.pyplot as plt
+                from sklearn.metrics import confusion_matrix
+                import seaborn as sns
+                sns.set(style="ticks", color_codes=True)
+                from keras.models import Sequential
+                from keras.layers import Dense
+              </code></pre>
+              </p>
+
+
+
+              <h4>
+
+            </div>
+
+        </div>
+      </div>
+          <!--- end of first column -->
+
+        <div class="colflex-column ml-auto mr-auto">
+        <h4> Exploring Variables </h4>
+        <br>
+          <center>
+            <img class="img-fluid" src="../absenteeism/img/exploredata1.png">
+            <img class="img-fluid" src="../absenteeism/img/exploredata2.png">
+            <img class="img-fluid" src="../absenteeism/img/exploredata3.png">
+          </center> <br><br>
+
+          <h4> Examining Features </h4>
+          <h6> Using Random Forest to target most important features </h6>
+          <p>
+          <pre>from sklearn.ensemble import RandomForestRegressor
+              model3= RandomForestRegressor(n_estimators=100)</pre></p>
+          <img class="img-fluid" src="../absenteeism/img/top4feats.png">
+          <img class="img-fluid" src="../absenteeism/img/allfeats.png">
+          <br><br>
+
+
+          <h4> Linear Regression </h4>
+          <p> <pre> <code class = "language-python">
+            from sklearn.linear_model import LinearRegression
+            model1 = LinearRegression()
+            model1.fit(X_train, y_train)
+
+            # Use our model to predict a value
+            y_predicted = model1.predict(X_test)
+            y_predicted = np.round_(y_predicted,0)
+
+            # Score the prediction with mse and r2
+            from sklearn.metrics import mean_squared_error, r2_score
+
+            mse = mean_squared_error(y_test, y_predicted)
+            r2 = r2_score(y_test, y_predicted)
+
+            print(f"Mean Squared Error (MSE): {mse}")
+            print(f"R squared (R2 ): {r2}")
+          </code>
+        </pre><center>
+        Mean Squared Error (MSE): 14.028571428571428<br>
+        R squared (R2 ): 0.2603730951836558<br>
+          <img class="img-fluid" src="../absenteeism/img/linear.png">
+        </center><br><br>
+
+        <h4> Decision Tree </h4>
+        <p> <pre> <code class = "language-python">
+          from sklearn.tree import DecisionTreeRegressor
+          model2.fit(Xn_train, yn_train)
+
+          # Use our model to predict a value
+          yn2_predicted = model2.predict(Xn_test)
+
+          # Score the prediction with mse and r2
+          mse = mean_squared_error(yn_test, yn2_predicted)
+          r2 = r2_score(yn_test, yn2_predicted)
+
+          print(f"Mean Squared Error (MSE): {mse}")
+          print(f"R-squared (R2 ): {r2}")
+            </code>
+          </pre><center>
+
+        Mean Squared Error (MSE): 10.507370470771278<br>
+        R-squared (R2 ): 0.446021005158997<br>
+        <img class="img-fluid" src="../absenteeism/img/dt.png">
+      </center><br><br>
+
+      <h4> Random Forest </h4>
+      <p> <pre> <code class = "language-python">
+      from sklearn.ensemble import RandomForestRegressor
+      model3= RandomForestRegressor(n_estimators=100)
+
+      model3.fit(Xn_train, yn_train)
+
+      # Use our model to predict a value
+      yn3_predicted = model3.predict(Xn_test)
+
+      # Score the prediction with mse and r2
+      mse = mean_squared_error(yn_test, yn3_predicted)
+      r2 = r2_score(yn_test, yn3_predicted)
+
+      print(f"Mean Squared Error (MSE): {mse}")
+      print(f"R-squared (R2 ): {r2}")
+      </code>
+    </pre><center>
+      Mean Squared Error (MSE): 9.913970015454096<br>
+      R-squared (R2 ): 0.47730679532783604<br>
+
+      <img class="img-fluid" src="../absenteeism/img/rf.png">
+    </center><br><br>
+
+
+        </div>
+        <!-- end of second column -->
+
+        <div class = "container-fluid colflex-column ml-auto mr-auto">
+          <div id ="Conclusion">
+            <h2> Conclusion </h2><br>
+            <div class= "row">
+            <div class = "col-sm">
+              <h4> Summary Statistics </h4>
+            <h6>Lets get to know the employees</h6><br>
+            1. 85% have high school level education. The remaining 15% have graduate, postgraduate and/or doctorate education. <br>
+            2. 68% of employees have 1, 2, 3 or 4 kids.<br>
+            3. 63% of employees are social drinkers.<br>
+            4. 93% of employees are social smokers.<br>
+            5. 61% of employees don't have pets. 24% have one pet<br><br>
+
+
+
+            <h5>The average employee</h5>
+
+            1. Lives 29 kilometers from work <br>
+            2. Has service time of 12. (Dataset is unclear about the unit of measurement)<br>
+            3. Is 36.25 years old<br>
+            4. Has 1 son<br>
+            5. Has .78 pets<br>
+            6. Missed 7.36 of work over the 4 year period<br>
+            <br><br>
+
+
+            <h4>Model Evaluation</h4><br>
+
+            <p>
+            	We have seen the Root Mean Square Error (RMSE) and R-Squared Value of different models. Root Mean Square Error (RMSE) is the standard deviation of the residuals (prediction errors). Residuals are a measure of how far from the regression line data points are, RMSE is a measure of how spread out these residuals are. In other words, it tells you how concentrated the data is around the line of best fit. Whereas R-squared is a relative measure of fit, RMSE is an absolute measure of fit. As the square root of a variance, RMSE can be interpreted as the standard deviation of the unexplained variance, and has the useful property of being in the same units as the response variable. Lower values of RMSE and higher value of R-Squared Value indicate better fit.
+            </p><br>
+            <h4>Model Selection</h4>
+            <p>From the observation of all RMSE Value and R-Squared Value we have concluded that Linear Regression Model  has minimum value of RMSE and it’s R-Squared Value is also maximum (i.e. 1).
+            The RMSE value of Testing data and Training does not differs a lot this implies that it is not the case of overfitting.
+          </p><br>
+            <h4>Key Insights</h4>
+
+            The Changes which company should bring to reduce the number of absenteeism –<br>
+            1.	We find that employees with low education have maximum absentee time.<br>
+            2.	Employees who are social smoker have more absentee hours than non-smokers.<br>
+            3. Top reasons for absenteeism: <br>
+            <p><center>
+            &#9635; Diseases of the musculoskeletal system and connective tissue<br>
+            &#9635; Injury, poisoning and certain other consequences of external causes <br>
+            &#9635; Medical consultation <br>
+            &#9635; Dental consultation <br> </p/center>
+
+
+
+            <br>
+
+
+            <br>
+            <br>
+            <br>
+
+
+          </div>
+
+          </div>
+
+          <!-- end of third column -->
+        </div>
+
+
+  <!-- end of container -->
+    </div>
+
+
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="js/linearpredictions.js" </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+
+
+  </body>
+</html>
